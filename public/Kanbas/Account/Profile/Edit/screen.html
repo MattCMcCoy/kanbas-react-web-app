@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>test page</title>
-		<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 
 	<body>
@@ -13,7 +13,9 @@
 		</table>
 		<br />
 		<script>
-			$('#rightcolumn').load('index.html');
+			$(document).ready(function () {
+				$('#rightcolumn').load('index.html');
+			});
 		</script>
 	</body>
 </html>
