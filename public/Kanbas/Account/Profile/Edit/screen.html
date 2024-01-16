@@ -8,11 +8,16 @@
 	<body>
 		<table>
 			<tr>
+				<td valign="top" id="leftcolumn"></td>
+				<td valign="top" id="middlecolumn"></td>
+				<td width="80px"></td>
 				<td id="rightcolumn"></td>
 			</tr>
 		</table>
 		<br />
 		<script>
+			$('#leftcolumn').load('../../Navigation/index.html');
+			$('#middlecolumn').load('../../../Navigation/index.html');
 			$(document).ready(function () {
 				$('#rightcolumn').load('index.html');
 			});
