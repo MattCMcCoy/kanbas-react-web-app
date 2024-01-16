@@ -3,31 +3,41 @@
 	<ul>
 		<table>
 			<tr valign="top">
-				<select id="select-one-grade">
-					<option value="Gradebook">Gradebook</option>
-				</select>
-				<input type="button" value="Import" />
-				<select id="select-one-files">
-					<option value="Export">Export</option>
-				</select>
-				<input type="button" value="Configure" />
-				<h3 for="text-fields-students">Student Names</h3>
-				<input
-					type="text"
-					id="text-fields-students"
-					placeholder="Search Students"
-				/>
-				<h3 for="text-fields-assignment">Assignment Names</h3>
-				<input
-					type="text"
-					id="text-fields-assignment"
-					placeholder="Search Assignments"
-				/>
+				<td>
+					<select id="select-one-grade">
+						<option value="Gradebook">Gradebook</option>
+					</select>
+				</td>
+				<td>
+					<input type="button" value="Import" />
+				</td>
+				<td>
+					<select id="select-one-files">
+						<option value="Export">Export</option>
+					</select>
+				</td>
+				<td>
+					<input type="button" value="Configure" />
+				</td>
 			</tr>
 		</table>
+		<h3 for="text-fields-students">Student Names</h3>
+		<input
+			type="text"
+			id="text-fields-students"
+			placeholder="Search Students"
+		/>
+		<h3 for="text-fields-assignment">Assignment Names</h3>
+		<input
+			type="text"
+			id="text-fields-assignment"
+			placeholder="Search Assignments"
+		/>
+		<br />
 		<br />
 		<input type="button" value="Apply Filters" />
-
+		<br />
+		<br />
 		<table border="1" width="100%">
 			<thead>
 				<tr>
