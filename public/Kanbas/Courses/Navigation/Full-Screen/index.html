@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Navigation</title>
+		<link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<a href="/Kanbas/Courses/Home/screen.html">
+			<button class="w-100 text-start bg-transparent border-0">
+				<i class="fa fa-times fa-lg float-end p-5"></i>
+			</button>
+		</a>
+		<ul id="links"></ul>
+		<script>
+			let links = [
+				{
+					title: 'Home',
+					href: '/Kanbas/Courses/Home/screen.html',
+					symbol: '<i class="fa fa-home fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Modules',
+					href: '/Kanbas/Courses/Modules/screen.html',
+					symbol: '<i class="fa fa-circle fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Piazza',
+					href: 'Piazza.com',
+					symbol: '<i class="fa fa-plug fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Zoom Meetings',
+					href: 'Zoom.com',
+					symbol: '<i class="fa fa-plug fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Assignments',
+					href: '/Kanbas/Courses/Assignments/Screen.html',
+					symbol: '<i class="fa fa-book fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Quizzes',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-rocket fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Grades',
+					href: '/Kanbas/Courses/Grades/screen.html',
+					symbol: '<i class="fa fa-book fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'People',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-users fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Panopto Video',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-plug fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Discussions',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-comments-o fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Announcements',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-commenting-o fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Pages',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-file-text-o fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Files',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-folder-o fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Rubrics',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-file-text-o fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Outcomes',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-tachometer fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Collaborations',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-circle-o fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Syllabus',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-file-text-o fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Progress Reports (EAB Navigation)',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-plug fa-lg me-2"></i>',
+					viewable: true
+				},
+				{
+					title: 'Settings',
+					href: '/Kanbas/Dashboard/screen.html',
+					symbol: '<i class="fa fa-cog fa-lg me-2"></i>',
+					viewable: true
+				}
+			];
+			const modules = links.map((link) => {
+				return (
+					'<li class="list-group-item align-items-center">' +
+					`<a href="${link.href}">` +
+					'<button class="w-100 text-start bg-transparent border-0 text-danger justify-content-between">' +
+					`${link.symbol}` +
+					`${link.title}` +
+					'</button>' +
+					'</a>'
+				);
+			});
+			document.getElementById('links').innerHTML += modules.join('');
+			window.onload = () => {
+				$('[href]').each(function () {
+					$(this).parent().removeClass('wd-active');
+				});
+				$('[href]').each(function () {
+					if (
+						window.location.href.includes(this.href.split('/')[4])
+					) {
+						console.log(this.href.split('/')[4]);
+						console.log(window.location.href);
+						$(this).parent().addClass('wd-active');
+					}
+				});
+			};
+		</script>
+	</body>
+</html>

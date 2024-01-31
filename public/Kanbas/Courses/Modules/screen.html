@@ -7,21 +7,31 @@
 		<link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
 	</head>
 
-	<body>
-		<div class="row w-100">
+	<body class="overflow-x-hidden">
+		<div class="d-flex flex-row w-100">
 			<div
-				class="col-1 w-auto position-sticky top-0 h-100"
+				class="d-none d-md-block w-auto position-sticky top-0 h-100"
 				id="leftcolumn"
 			></div>
 			<div
-				class="col-1 w-auto position-sticky top-0 h-100"
+				class="d-none d-md-block col-1 w-auto position-sticky top-0 h-100"
 				id="middlecolumn"
 			></div>
-			<div class="col-8 h-100" id="rightcolumn"></div>
+			<div class="d-flex flex-column align-items-center w-100">
+				<div class="w-100 pb-3" id="header"></div>
+				<div class="row w-100">
+					<div
+						class="col-12 w-100 h-100 me-auto"
+						id="rightcolumn"
+					></div>
+				</div>
+			</div>
 		</div>
+
 		<br />
 		<script>
 			$(document).ready(function () {
+				$('#header').load('../Header/index.html');
 				$('#leftcolumn').load('../../Navigation/index.html');
 				$('#middlecolumn').load('../Navigation/index.html');
 				$('#rightcolumn').load('index.html');
