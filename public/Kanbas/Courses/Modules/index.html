@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Course/Home</title>
+		<link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+		<link
+			href="/libs/font-awesome/css/font-awesome.min.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/Kanbas/Courses/Modules/index.css" />
+	</head>
+	<body class="d-flex flex-column ps-auto">
+		<ul class="list-group wd-modules w-100">
+			<ul class="py-2 border-bottom border-dark-subtle">
+				<div style="display: flex; flex-direction: row">
+					<button
+						class="border-0 rounded-1 small me-1"
+						style="height: 40px"
+					>
+						Collapse All
+					</button>
+					<button
+						class="border-0 rounded-1 small me-1"
+						style="height: 40px"
+					>
+						View Progress
+					</button>
+					<select
+						class="w-25 me-2 border-0 rounded-1 me-1"
+						style="
+							background-color: #efefef;
+							height: 40px;
+							border-radius: 2;
+						"
+					>
+						<option value="PublishAll" class="small">
+							<i class="fa fa-check-circle text-success me-2"></i>
+							Publish All
+						</option>
+					</select>
+					<button
+						class="border-0 text-bg-danger rounded-1 small me-1 small"
+						style="height: 40px"
+					>
+						<small><i class="fa fa-plus ms-2"></i></small>
+						Module
+					</button>
+				</div>
+			</ul>
+		</ul>
+		<div class="pt-2 overflow-x-hidden" id="modules"></div>
+
+		<script>
+			let modules = [
+				{
+					title: 'Week 0 - Intro',
+					items: [
+						{
+							header: 'Learning Objectives',
+							items: [
+								'Learn What Is Web',
+								'Creating Development Enviroment',
+								'Creating A Web Application',
+								'Getting Started With The 1st Assignment'
+							]
+						},
+						{
+							header: 'READING',
+							items: [
+								'Full Stack Developer - Chapter 1 - Introduction',
+								'Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML'
+							]
+						},
+						{
+							header: 'SLIDES',
+							items: [
+								{
+									title: 'Introduction to Web Development Links to an external site.',
+									href: 'https://www.lipsum.com'
+								},
+								{
+									title: 'Creating an HTTP server with Node.js Links to an external site.',
+									href: 'https://www.lipsum.com'
+								},
+								{
+									title: 'Creating a React Application Links to an external site.',
+									href: 'https://www.lipsum.com'
+								}
+							]
+						}
+					]
+				},
+				{
+					title: 'Week 1 - HTML',
+					items: [
+						{
+							header: 'Learning Objectives',
+							items: [
+								'Learn How To Create User Interfaces With HTML',
+								'Keep Working On Assignment 1',
+								'Deploy The Assignment To Netlify'
+							]
+						},
+						{
+							header: 'READING',
+							items: [
+								'Full Stack Developer - Chapter 1 - Introduction',
+								'Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML'
+							]
+						}
+					]
+				}
+			];
+			for (let i = 0; i < modules.length; i++) {
+				const module =
+					'<li class="list-group-item">' +
+					'<div>' +
+					'<i class="fas fa-ellipsis"></i>' +
+					`${modules[i].title}` +
+					'<span class="float-end">' +
+					'<i class="fa fa-check-circle text-success me-2"></i>' +
+					'<i class="fa fa-plus ms-2 me-2"></i>' +
+					'<i class="fa fa-ellipsis-v ms-2 me-3"></i>' +
+					'</span>' +
+					'</div>' +
+					'<ul class="list-group">' +
+					`${modules[i].items
+						.map(
+							(item) =>
+								'<li class="list-group-item">' +
+								'<i class="fa fa-ellipsis"></i>' +
+								`${item.header}` +
+								`<span class="float-end">` +
+								'<i class="fa fa-check-circle text-success  me-2"></i>' +
+								'<i class="fa fa-ellipsis-v ms-2"></i>' +
+								'</span>' +
+								'</li>' +
+								`${item.items
+									.map((item) =>
+										item.href
+											? '<li class="list-group-item w-100 ps-5 d-flex align-items-center">' +
+												`<a class="me-auto" href=${item.href}>` +
+												`${item.title}` +
+												'</a>' +
+												`<span class="d-flex flex-row">` +
+												'<i class="fa fa-check-circle text-success me-2"></i>' +
+												'<i class="fa fa-ellipsis-v ms-2"></i>' +
+												'</span>' +
+												'</li>'
+											: `<li class="list-group-item w-100 ps-5 d-flex align-items-center">` +
+												'<div class="me-auto">' +
+												`${item}` +
+												'</div>' +
+												`<span class="d-flex flex-row">` +
+												'<i class="fa fa-check-circle text-success me-2"></i>' +
+												'<i class="fa fa-ellipsis-v ms-2"></i>' +
+												'</span>' +
+												`</li>`
+									)
+									.join('')}`
+						)
+						.join('')}` +
+					'</ul>' +
+					'</li>';
+				document.getElementById('modules').innerHTML += module;
+			}
+		</script>
+	</body>
+</html>

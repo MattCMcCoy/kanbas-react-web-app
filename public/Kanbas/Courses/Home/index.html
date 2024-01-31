@@ -1,148 +1,102 @@
 <!doctype html>
 <html lang="en">
-	<table>
-		<td valign="top">
-			<ul>
-				<input type="button" value="Collapse All" />
-				<input type="button" value="View Progress" />
-				<select id="select-one-genre">
-					<option value="PublishAll">Publish All</option>
-				</select>
-				<input type="button" value="Module" />
-			</ul>
-			<ul>
-				<li>
-					Week 0 - INTRO
-					<ul>
-						<li>
-							LEARNING OBJECTIVES
-							<ul>
-								<li>Introduction to the course</li>
-								<li>Learn what is Web Development</li>
-								<li>Creating a development enviroment</li>
-								<li>Creating a Web Application</li>
-								<li>Getting started with the 1st assignment</li>
-							</ul>
-						</li>
-						<li>
-							READING
-							<ul>
-								<li>
-									Full Stack Developer - Chapter 1 -
-									Introduction
-								</li>
-								<li>
-									Full Stack Developer - Chapter 2 - Creating
-									User Interfaces With HTML
-								</li>
-							</ul>
-						</li>
-						<li>
-							SLIDES
-							<ul>
-								<li>
-									<a href="https://www.lipsum.com">
-										Introduction to Web Development Links to
-										an external site.
-									</a>
-								</li>
-								<li>
-									<a href="https://www.lipsum.com">
-										Creating an HTTP server with Node.js
-										Links to an external site.
-									</a>
-								</li>
-								<li>
-									<a href="https://www.lipsum.com">
-										Creating a React Application Links to an
-										external site.
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li>
-					Week 1 - HTML
-					<ul>
-						<li>
-							LEARNING OBJECTIVES
-							<ul>
-								<li>
-									Learn how to create user interfaces with
-									HTML
-								</li>
-								<li>Keep working on assignment 1</li>
-								<li>Deploy the assignment to Netlify</li>
-							</ul>
-						</li>
-						<li>
-							READING
-							<ul>
-								<li>
-									Full Stack Developer - Chapter 1 -
-									Introduction
-								</li>
-								<li>
-									Full Stack Developer - Chapter 2 - Creating
-									User Interfaces With HTML
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</td>
-		<td width="20px"></td>
-		<td valign="top">
-			<h2>Course Status</h2>
-			<button type="button">Unpublished</button>
-			<button type="button">Published</button>
-
-			<ul>
-				<li>
-					<a href="https://www.lipsum.com">Import Existing Content</a>
-				</li>
-				<li>
-					<a href="https://www.lipsum.com">Import From Commons</a>
-				</li>
-				<li>
-					<a href="https://www.lipsum.com">Choose Home Page</a>
-				</li>
-				<li>
-					<a href="https://www.lipsum.com">View Course Stream</a>
-				</li>
-				<li>
-					<a href="https://www.lipsum.com">New Announcement</a>
-				</li>
-				<li>
-					<a href="https://www.lipsum.com">New Analytics</a>
-				</li>
-				<li>
-					<a href="https://www.lipsum.com">
-						View Course Notifications
-					</a>
-				</li>
-			</ul>
-			<h2>Coming Up</h2>
-			<a href="https://www.lipsum.com">View Calendar</a>
-			<ul>
-				<li>
-					<a href="https://www.lipsum.com">
-						Lecture CS4550.12631.202410 Sep 7 at 11:45am
-					</a>
-				</li>
-				<li>
-					<a href="https://www.lipsum.com">
-						Lecture CS4550.12631.202410 Sep 11 at 11:45am
-					</a>
-				</li>
-				<li>
-					<a href="https://www.lipsum.com">
-						Lecture CS5610 06 SP23 Lecture Sep 11 at 6pm
-					</a>
-				</li>
-			</ul>
-		</td>
-	</table>
+	<header>
+		<link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+	</header>
+	<body>
+		<div>
+			<div class="row">
+				<h5>Course Status</h5>
+			</div>
+			<div class="row pb-3">
+				<button
+					class="text-start col-6 border-0 rounded-1"
+					type="button"
+				>
+					Unpublished
+				</button>
+				<button
+					class="text-start col-6 border-0 rounded-1"
+					type="button"
+				>
+					Published
+				</button>
+			</div>
+			<div class="row pb-1">
+				<button class="text-start border-0 rounded-1" type="button">
+					Import Existing Content
+				</button>
+			</div>
+			<div class="row pb-1">
+				<button class="text-start border-0 rounded-1" type="button">
+					Import From Commons
+				</button>
+			</div>
+			<div class="row pb-1">
+				<button class="text-start border-0 rounded-1" type="button">
+					Choose Home Page
+				</button>
+			</div>
+			<div class="row pb-1">
+				<button class="text-start border-0 rounded-1" type="button">
+					View Course Stream
+				</button>
+			</div>
+			<div class="row pb-1">
+				<button class="text-start border-0 rounded-1" type="button">
+					New Announcement
+				</button>
+			</div>
+			<div class="row pb-1">
+				<button class="text-start border-0 rounded-1" type="button">
+					View Course Notifications
+				</button>
+			</div>
+			<div
+				class="border-bottom justify-content-center align-content-center"
+			>
+				<h5>To Do</h5>
+			</div>
+			<div>
+				<button class="border-0 rounded-1 bg-transparent">
+					<div class="text-start text-danger">
+						Grade A1 - ENV + HTML
+					</div>
+					<div class="text-muted text-start">
+						100 points - Sep 18 at 11:59pm
+					</div>
+				</button>
+			</div>
+			<div
+				class="row border-bottom justify-content-center align-content-center"
+			>
+				<h5 class="col-6">Coming Up</h5>
+				<button
+					class="col-6 border-0 rounded-1 bg-transparent text-danger"
+					type="button"
+				>
+					<small>
+						<small>View Calendar</small>
+					</small>
+				</button>
+			</div>
+			<div>
+				<button class="border-0 rounded-1 bg-transparent">
+					<div class="text-start text-danger">Lecture</div>
+					<div class="text-muted text-start">CS4550.12631.202410</div>
+					<div class="text-muted text-start">Sep 7 at 11:45am</div>
+				</button>
+				<button class="border-0 rounded-1 bg-transparent">
+					<div class="text-start text-danger">Lecture</div>
+					<div class="text-muted text-start">CS4550.12631.202410</div>
+					<div class="text-muted text-start">Sep 7 at 11:45am</div>
+				</button>
+				<button class="border-0 rounded-1 bg-transparent">
+					<div class="text-start text-danger">Lecture</div>
+					<div class="text-muted text-start">CS4550.12631.202410</div>
+					<div class="text-muted text-start">Sep 7 at 11:45am</div>
+				</button>
+			</div>
+		</div>
+	</body>
 </html>

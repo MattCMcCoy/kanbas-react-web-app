@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Dashboard</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="/Kanbas/styles.css" />
+	</head>
+
+	<body>
+		<div class="row">
+			<div
+				class="col-1 w-auto position-sticky top-0 h-100"
+				id="leftcolumn"
+			></div>
+			<div class="col-9 col-xl-11" id="rightcolumn"></div>
+		</div>
+		<br />
+		<script>
+			$(document).ready(function () {
+				$('#leftcolumn').load('../Navigation/index.html');
+				$('#rightcolumn').load('index.html');
+			});
+		</script>
+	</body>
+</html>

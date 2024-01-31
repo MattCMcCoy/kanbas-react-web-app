@@ -1,21 +1,24 @@
 <!doctype html>
 <html>
 	<head>
-		<title>test page</title>
+		<title>Courses/Modules</title>
+		<link rel="stylesheet" href="/Kanbas/styles.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
 	</head>
 
 	<body>
-		<table>
-			<tr>
-				<td valign="top" id="leftcolumn"></td>
-				<td width="80px"></td>
-				<td valign="top" id="middlecolumn"></td>
-				<td width="80px"></td>
-				<td id="rightcolumn"></td>
-			</tr>
-		</table>
+		<div class="row w-100">
+			<div
+				class="col-1 w-auto position-sticky top-0 h-100"
+				id="leftcolumn"
+			></div>
+			<div
+				class="col-1 w-auto position-sticky top-0 h-100"
+				id="middlecolumn"
+			></div>
+			<div class="col-8 h-100" id="rightcolumn"></div>
+		</div>
 		<br />
 		<script>
 			$(document).ready(function () {

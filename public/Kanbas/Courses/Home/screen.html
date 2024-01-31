@@ -1,24 +1,70 @@
 <!doctype html>
 <html>
 	<head>
-		<title>test page</title>
+		<title>Courses/Home</title>
+		<link rel="stylesheet" href="/Kanbas/styles.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
 	</head>
 
 	<body>
-		<table>
-			<tr>
-				<td valign="top" id="leftcolumn"></td>
-				<td valign="top" id="middlecolumn"></td>
-				<td width="80px"></td>
-				<td id="rightcolumn"></td>
-			</tr>
-		</table>
+		<div class="d-flex flex-row w-100">
+			<div
+				class="d-none d-md-block w-auto position-sticky top-0 h-100"
+				id="leftcolumn"
+			></div>
+			<div class="d-flex flex-column align-items-center">
+				<div
+					class="w-100 ms-3 border-bottom d-flex flex-row pt-4 pb-4 align-items-center"
+				>
+					<button class="bg-transparent border-0">
+						<a href="/Kanbas/Navigation/Full-Screen">
+							<i
+								class="fa fa-bars me-2 text-danger"
+								aria-hidden="true"
+							></i>
+						</a>
+					</button>
+
+					<h7 class="text-danger">CS1234 React JS</h7>
+					<h7 class="ms-2">
+						<i
+							class="fa fa-angle-left me-2"
+							style="color: gray"
+							aria-hidden="true"
+						></i>
+						Modules
+					</h7>
+					<button
+						class="ms-auto me-5 rounded-2 border-0"
+						style="height: 40px; width: 120px"
+					>
+						Student View
+					</button>
+				</div>
+				<div class="row">
+					<div
+						class="d-none d-md-block col-1 w-auto position-sticky top-0 h-100"
+						id="middlecolumn"
+					></div>
+					<div
+						class="col-12 col-md-7 col-lg-6 col-xxl-7 h-100 me-auto"
+						id="middlecolumn2"
+					></div>
+					<div
+						class="d-none d-lg-block col-2 h-100 me-5"
+						id="rightcolumn"
+					></div>
+				</div>
+			</div>
+		</div>
+
 		<br />
 		<script>
 			$(document).ready(function () {
 				$('#leftcolumn').load('../../Navigation/index.html');
 				$('#middlecolumn').load('../Navigation/index.html');
+				$('#middlecolumn2').load('../Modules/index.html');
 				$('#rightcolumn').load('index.html');
 			});
 		</script>

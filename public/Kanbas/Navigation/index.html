@@ -1,21 +1,103 @@
 <!doctype html>
 <html>
-	<ul>
-		<li><a href="/Kanbas/Account/Profile/screen.html">Account</a></li>
-		<li>
-			<a href="#">Dashboard</a>
-		</li>
-		<li>
-			<a href="/Kanbas/Courses/Home/screen.html">Courses</a>
-		</li>
-		<li>
-			<a href="#">Calendar</a>
-		</li>
-
-		<li><a href="#">Inbox</a></li>
-		<li><a href="#">History</a></li>
-		<li><a href="#">Studio</a></li>
-		<li><a href="#">Commons</a></li>
-		<li><a href="#">Help</a></li>
-	</ul>
+	<head>
+		<title>Navigation</title>
+		<link rel="stylesheet" href="/Kanbas/styles.css" />
+		<link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+		<link
+			rel="stylesheet"
+			href="/libs/font-awesome/css/font-awesome.min.css"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<ul class="wd-kanbas-navigation list-group">
+			<li>
+				<a href="http://northeastern.edu" class="wd-neu">N</a>
+			</li>
+			<li>
+				<a href="/Kanbas/Account/Profile/screen.html">
+					<i
+						class="fa fa-user-circle-o"
+						style="color: white"
+						aria-hidden="true"
+					></i>
+					Account
+				</a>
+			</li>
+			<li class="wd-active">
+				<a href="/Kanbas/Dashboard/screen.html">
+					<i class="fa fa-tachometer"></i>
+					Dashboard
+				</a>
+			</li>
+			<li class="">
+				<a href="/Kanbas/Courses/Home/screen.html">
+					<i class="fa fa-book"></i>
+					Courses
+				</a>
+			</li>
+			<li>
+				<a href="/Kanbas/Calendar">
+					<i class="fa fa-calendar"></i>
+					Calendar
+				</a>
+			</li>
+			<li>
+				<a href="/Kanbas/Inbox">
+					<div>
+						<i class="fa fa-inbox"></i>
+					</div>
+					Inbox
+				</a>
+			</li>
+			<li>
+				<a href="/Kanbas/History">
+					<div>
+						<i class="fa fa-clock-o"></i>
+					</div>
+					History
+				</a>
+			</li>
+			<li>
+				<a href="/Kanbas/Studio">
+					<i class="fa fa-television" aria-hidden="true"></i>
+					Studio
+				</a>
+			</li>
+			<li>
+				<a href="/Kanbas/Commons">
+					<i class="fa fa-arrow-right" aria-hidden="true"></i>
+					Commons
+				</a>
+			</li>
+			<li>
+				<a href="/Kanbas/Help">
+					<div>
+						<i
+							class="fa fa-question-circle-o"
+							aria-hidden="true"
+						></i>
+					</div>
+					Help
+				</a>
+			</li>
+		</ul>
+		<script>
+			window.onload = () => {
+				$('[href]').each(function () {
+					$(this).parent().removeClass('wd-active');
+				});
+				$('[href]').each(function () {
+					if (
+						window.location.href.includes(this.href.split('/')[4])
+					) {
+						console.log(this.href.split('/')[4]);
+						console.log(window.location.href);
+						$(this).parent().addClass('wd-active');
+					}
+				});
+			};
+		</script>
+	</body>
 </html>

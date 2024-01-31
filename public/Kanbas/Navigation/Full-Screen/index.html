@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Navigation</title>
+		<link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="/Kanbas/Courses/Modules/index.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<a href="/Kanbas/Courses/Home/screen.html">
+			<button class="w-100 text-start bg-transparent border-0">
+				<i class="fa fa-times fa-lg float-end p-5"></i>
+			</button>
+		</a>
+		<ul class="list-group">
+			<li class="list-group-item">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<a href="/Kanbas/Dashboard/screen.html">
+							<button
+								class="w-100 text-start bg-transparent border-0 text-danger"
+							>
+								<i class="fa fa-tachometer fa-lg"></i>
+								Dashboard
+							</button>
+						</a>
+					</li>
+					<li class="list-group-item">
+						<a href="/Kanbas/Account/Profile/screen.html">
+							<button
+								class="w-100 text-start bg-transparent border-0 text-danger"
+							>
+								<i class="fa fa-tachometer fa-lg"></i>
+								Account
+								<i
+									class="fa fa-chevron-right fa-lg float-end"
+								></i>
+							</button>
+						</a>
+					</li>
+					<li class="list-group-item">
+						<a href="/Kanbas/Courses/Home/screen.html">
+							<button
+								class="w-100 text-start bg-transparent border-0 text-danger"
+							>
+								<i class="fa fa-tachometer fa-lg"></i>
+								Courses
+								<i
+									class="fa fa-chevron-right fa-lg float-end"
+								></i>
+							</button>
+						</a>
+					</li>
+					<li class="list-group-item">
+						<a href="/Kanbas/Calendar/screen.html">
+							<button
+								class="w-100 text-start bg-transparent border-0 text-danger"
+							>
+								<i class="fa fa-tachometer fa-lg"></i>
+								Calendar
+							</button>
+						</a>
+					</li>
+					<li class="list-group-item">
+						<a href="/Kanbas/Inbox/screen.html">
+							<button
+								class="w-100 text-start bg-transparent border-0 text-danger"
+							>
+								<i class="fa fa-tachometer fa-lg"></i>
+								Inbox
+							</button>
+						</a>
+					</li>
+					<li class="list-group-item">
+						<a href="/Kanbas/Studio/screen.html">
+							<button
+								class="w-100 text-start bg-transparent border-0 text-danger"
+							>
+								<i class="fa fa-tachometer fa-lg"></i>
+								Studio
+							</button>
+						</a>
+					</li>
+					<li class="list-group-item">
+						<a href="/Kanbas/Commons/screen.html">
+							<button
+								class="w-100 text-start bg-transparent border-0 text-danger"
+							>
+								<i class="fa fa-tachometer fa-lg"></i>
+								Commons
+							</button>
+						</a>
+					</li>
+					<li class="list-group-item">
+						<a href="/Kanbas/History/screen.html">
+							<button
+								class="w-100 text-start bg-transparent border-0 text-danger"
+							>
+								<i class="fa fa-tachometer fa-lg"></i>
+								History
+								<i
+									class="fa fa-chevron-right fa-lg float-end"
+								></i>
+							</button>
+						</a>
+					</li>
+					<li class="list-group-item align-items-center">
+						<a href="/Kanbas/Help/screen.html">
+							<button
+								class="w-100 text-start bg-transparent border-0 text-danger"
+							>
+								<i class="fa fa-tachometer fa-lg"></i>
+								Help
+								<i
+									class="fa fa-chevron-right fa-lg float-end"
+								></i>
+							</button>
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<script>
+			window.onload = () => {
+				$('[href]').each(function () {
+					$(this).parent().removeClass('wd-active');
+				});
+				$('[href]').each(function () {
+					if (
+						window.location.href.includes(this.href.split('/')[4])
+					) {
+						console.log(this.href.split('/')[4]);
+						console.log(window.location.href);
+						$(this).parent().addClass('wd-active');
+					}
+				});
+			};
+		</script>
+	</body>
+</html>
