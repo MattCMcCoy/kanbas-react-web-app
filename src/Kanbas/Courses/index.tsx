@@ -1,27 +1,29 @@
 import { courses } from '../../Kanbas/Database';
-import {
-	Navigate,
-	Route,
-	Routes,
-	useLocation,
-	useParams
-} from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import { HiMiniBars3 } from 'react-icons/hi2';
 import CourseNavigation from './Navigation';
 import { FaAngleRight } from 'react-icons/fa';
 import Modules from './Modules';
 import Home from './Home';
 import Assignments from './Assignments';
+import { Button, Modal } from 'react-bootstrap';
+import { useState } from 'react';
+import SmallNav from './Navigation/SmallNav';
+
 function Courses() {
+	const [show, setShow] = useState(false);
+
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
 	const { courseId } = useParams();
 	const { pathname } = useLocation();
 	const course = courses.find((course) => course._id === courseId);
-	const breadcrumb =
-		pathname.split('/')[4] === 'Home' ? 'Modules' : pathname.split('/')[4];
+	const breadcrumb = pathname.split('/')[4] === 'Home' ? 'Modules' : pathname.split('/')[4];
 	return (
 		<div>
+			<SmallNav show={show} handleClose={handleClose} />
 			<div className="border-bottom p-3 d-flex align-items-center">
-				<h1 className="d-flex align-items-center pe-4">
+				<h1 className="d-flex align-items-center pe-4" onClick={handleShow}>
 					<HiMiniBars3 color="red" />
 				</h1>
 				<h3 className="d-flex align-items-center">
@@ -38,14 +40,8 @@ function Courses() {
 						<Route path="Modules" element={<Modules />} />
 						<Route path="Piazza" element={<h1>Piazza</h1>} />
 						<Route path="Assignments" element={<Assignments />} />
-						<Route
-							path="Assignments/:assignmentId"
-							element={<h1>Assignment Editor</h1>}
-						/>
-						<Route
-							path=":courseId/Grades"
-							element={<h1>Grades</h1>}
-						/>
+						<Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
+						<Route path=":courseId/Grades" element={<h1>Grades</h1>} />
 					</Routes>
 				</div>
 			</div>

@@ -43,7 +43,7 @@ function KanbasNavigation() {
 	];
 	const { pathname } = useLocation();
 	return (
-		<ul className="wd-kanbas-navigation">
+		<ul className="wd-kanbas-navigation d-none d-md-block">
 			<li className="wd-neu">
 				<Link
 					className="wd-neu text-danger"
