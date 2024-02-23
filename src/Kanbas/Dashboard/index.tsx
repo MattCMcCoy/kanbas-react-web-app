@@ -9,14 +9,11 @@ function Dashboard() {
 			<div className="row">
 				<div className="row row-cols-1 row-cols-md-5 g-4">
 					{courses.map((course) => (
-						<div
-							key={course._id}
-							className="col"
-							style={{ width: 300 }}
-						>
+						<div key={course._id} className="col" style={{ width: 300 }}>
 							<div className="card">
 								<img
-									src={`/images/${course.image}`}
+									src={require(`./images/${course.image}`)}
+									alt={course.name}
 									className="card-img-top"
 									style={{ height: 150 }}
 								/>
@@ -33,10 +30,7 @@ function Dashboard() {
 										{course.name}{' '}
 									</Link>
 									<p className="card-text">{course.name}</p>
-									<Link
-										to={`/Kanbas/Courses/${course._id}/Home`}
-										className="btn btn-primary"
-									>
+									<Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">
 										Go{' '}
 									</Link>
 								</div>
