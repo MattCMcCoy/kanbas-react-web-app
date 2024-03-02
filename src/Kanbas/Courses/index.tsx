@@ -1,4 +1,3 @@
-import { courses } from '../../Kanbas/Database';
 import { Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import { HiMiniBars3 } from 'react-icons/hi2';
 import CourseNavigation from './Navigation';
@@ -6,11 +5,10 @@ import { FaAngleRight } from 'react-icons/fa';
 import Modules from './Modules';
 import Home from './Home';
 import Assignments from './Assignments';
-import { Button, Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import SmallNav from './Navigation/SmallNav';
 
-function Courses() {
+function Courses({ courses }) {
 	const [show, setShow] = useState(false);
 
 	const handleClose = () => setShow(false);
