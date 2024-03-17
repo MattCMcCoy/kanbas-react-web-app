@@ -1,18 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css';
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from 'react-icons/fa';
 import { useParams } from 'react-router';
 import { Modal } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { addModule, deleteModule, updateModule, setModule } from './modulesReducer';
+import { addModule, deleteModule, updateModule, setModule, setModules } from './modulesReducer';
 import { KanbasState } from '../../store';
+import * as client from './client';
 
 function ModuleList({ show, setShow }) {
 	const { courseId } = useParams();
+	const dispatch = useDispatch();
+	useEffect(() => {
+		client.findModulesForCourse(courseId).then((modules) => dispatch(setModules(modules)));
+	}, [courseId, dispatch]);
+
+	const handleAddModule = () => {
+		client.createModule(courseId, module).then((module) => {
+			dispatch(addModule(module));
+		});
+	};
+
+	const handleDeleteModule = (moduleId: string) => {
+		client.deleteModule(moduleId).then((status) => {
+			dispatch(deleteModule(moduleId));
+		});
+	};
+
+	const handleUpdateModule = async () => {
+		const status = await client.updateModule(module);
+		dispatch(updateModule(module));
+	};
 
 	const moduleList = useSelector((state: KanbasState) => state.modulesReducer.modules);
 	const module = useSelector((state: KanbasState) => state.modulesReducer.module);
-	const dispatch = useDispatch();
 
 	const modulesList = moduleList.filter((module) => module.course === courseId);
 	const [selectedModule, setSelectedModule] = useState(modulesList[0]);
@@ -41,16 +62,10 @@ function ModuleList({ show, setShow }) {
 							onChange={(e) => dispatch(setModule({ ...module, description: e.target.value }))}
 						/>
 					</li>
-					<button
-						className="ms-2 mt-3 btn btn-success rounded-5"
-						onClick={() => dispatch(addModule({ ...module, course: courseId }))}
-					>
+					<button className="ms-2 mt-3 btn btn-success rounded-5" onClick={handleAddModule}>
 						Add
 					</button>
-					<button
-						className="btn ms-2 mt-3 btn-secondary rounded-5"
-						onClick={() => dispatch(updateModule(module))}
-					>
+					<button className="btn ms-2 mt-3 btn-secondary rounded-5" onClick={handleUpdateModule}>
 						Update
 					</button>
 				</Modal.Body>
@@ -82,7 +97,7 @@ function ModuleList({ show, setShow }) {
 								<button
 									type="button"
 									className="btn btn-danger"
-									onClick={() => dispatch(deleteModule(module._id))}
+									onClick={() => handleDeleteModule(module._id)}
 								>
 									Delete
 								</button>

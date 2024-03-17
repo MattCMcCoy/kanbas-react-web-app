@@ -5,17 +5,27 @@ import { FaAngleRight } from 'react-icons/fa';
 import Modules from './Modules';
 import Home from './Home';
 import Assignments from './Assignments';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SmallNav from './Navigation/SmallNav';
+import axios from 'axios';
 
-function Courses({ courses }) {
+function Courses() {
 	const [show, setShow] = useState(false);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 	const { courseId } = useParams();
 	const { pathname } = useLocation();
-	const course = courses.find((course) => course._id === courseId);
+	const COURSES_API = 'http://localhost:4000/api/courses';
+	const [course, setCourse] = useState<any>({ _id: '' });
+	const findCourseById = async (courseId?: string) => {
+		const response = await axios.get(`${COURSES_API}/${courseId}`);
+		setCourse(response.data);
+	};
+	useEffect(() => {
+		findCourseById(courseId);
+	}, [courseId]);
+
 	const breadcrumb = pathname.split('/')[4] === 'Home' ? 'Modules' : pathname.split('/')[4];
 	return (
 		<div>
